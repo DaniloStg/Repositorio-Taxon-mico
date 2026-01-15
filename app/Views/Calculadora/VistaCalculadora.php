@@ -28,18 +28,27 @@
 
 <div class="header-pma shadow">
     <div class="container">
-        <h1 class="h3 fw-bold">Sistema de Evaluación PMA-SL</h1>
-        <p class="mb-4 opacity-75">Cálculo Hipergeométrico Avanzado (Modelo Novak & Bone)</p>
+        <h1 class="h3 fw-bold">PMA-SL – Calculadora del Índice Percent Model Affinity para Ríos Serranos</h1>
+        <p class="mb-4 opacity-75">Evaluación rápida de la calidad ecológica de un sitio mediante macroinvertebrados bentónicos.</p>
         <div class="row g-3">
-            <div class="col-md-3"><label class="small fw-bold text-white">GESTOR</label><input type="text" id="input-gestor" class="form-control form-control-sm border-0"></div>
-            <div class="col-md-3"><label class="small fw-bold text-white">FECHA</label><input type="date" id="input-fecha" class="form-control form-control-sm border-0"></div>
-            <div class="col-md-3"><label class="small fw-bold text-white">CICLO</label>
+            <div class="col-md-3"><label class="small fw-bold text-white">Nombre del sitio</label><input type="text" id="input-gestor" class="form-control form-control-sm border-0"></div>
+            <div class="col-md-3"><label class="small fw-bold text-white">Fecha</label><input type="date" id="input-fecha" class="form-control form-control-sm border-0"></div>
+            <div class="col-md-3"><label class="small fw-bold text-white">Ciclo hidrológico</label>
                 <select id="input-ciclo" class="form-select form-select-sm border-0">
                     <option>Aguas Altas</option>
                     <option>Aguas Bajas</option>
                 </select>
             </div>
-            <div class="col-md-3"><label class="small fw-bold text-white">MUESTREADOR</label><input type="text" id="input-muestreador" class="form-control form-control-sm border-0"></div>
+            <div class="col-md-3"><label class="small fw-bold text-white">Ciclo hidrológico</label>
+                <select id="input-ciclo" class="form-select form-select-sm border-0">
+                    <option>Red D</option>
+                    <option>Surber</option>
+                </select>
+            </div>            <div class="col-md-3"></div>
+            <div class="col-md-6"><label class="small fw-bold text-white">Observaciones</label><input type="text" id="input-muestreador" class="form-control form-control-sm border-0"></div>
+            <div class="col-md-3"></div>
+
+
         </div>
     </div>
 </div>
