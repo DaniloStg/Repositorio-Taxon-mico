@@ -12,7 +12,6 @@ class LogicaCalculadora extends BaseController
     // public function __construct()
     // {
     //     helper('form');
-    //     $this->Turnos = new Turnos();
     // }
 
 
