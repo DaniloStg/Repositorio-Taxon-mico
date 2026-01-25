@@ -4,25 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora PMA-SL | Científica</title>
+
+    <link rel="stylesheet" href="<?= base_url('Styles/Calculadora.css') ?>">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
     
-    <style>
-        :root { --primary-dark: #0f172a; }
-        body { background-color: #f1f5f9; padding-bottom: 180px; font-family: 'Segoe UI', sans-serif; }
-        .header-pma { background: #075985; color: white; padding: 2rem 0; border-radius: 0 0 1.5rem 1.5rem; margin-bottom: 1.5rem; }
-        .group-card { border-radius: 12px; border: none; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); margin-bottom: 1.5rem; }
-        .group-header-G1 { border-top: 6px solid #198754; }
-        .group-header-G2 { border-top: 6px solid #0dcaf0; }
-        .group-header-G3 { border-top: 6px solid #ffc107; }
-        .group-header-G4 { border-top: 6px solid #6c757d; }
-        .taxa-input-group { background: #fff; border: 1px solid #dee2e6; border-radius: 8px; padding: 4px 10px; margin-bottom: 4px; display: flex; align-items: center; }
-        .taxa-name { font-size: 0.85rem; flex-grow: 1; font-weight: 500; }
-        .taxa-code { font-size: 0.7rem; color: #6c757d; margin-right: 10px; background: #e9ecef; padding: 2px 5px; border-radius: 4px; min-width: 55px; text-align: center; }
-        .sticky-footer { position: fixed; bottom: 0; width: 100%; background: var(--primary-dark); color: white; padding: 1rem 0; z-index: 1050; border-top: 4px solid #075985; }
-        #warning-box { font-size: 0.85rem; margin-bottom: 10px; display: none; }
-    </style>
+
 </head>
 <body>
 
