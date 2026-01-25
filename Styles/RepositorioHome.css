@@ -1,0 +1,169 @@
+ body {
+     background-color: #282a28 !important;
+     color: white !important;
+ }
+
+ .macro-nav-container {
+     display: flex;
+     justify-content: center;
+     gap: 12px;
+     overflow-x: auto;
+     padding: 15px 10px;
+     -webkit-overflow-scrolling: touch;
+ }
+
+ .macro-card-mini {
+     background: #fff;
+     border: 1px solid #ccc;
+     text-align: center;
+     padding: 6px;
+     text-decoration: none;
+     color: #333;
+     flex: 0 0 auto;
+     width: 95px;
+     border-radius: 6px;
+     transition: all 0.2s;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+ }
+
+ /* Media Query para Celulares */
+ @media (max-width: 768px) {
+     .macro-nav-container {
+         justify-content: flex-start;
+     }
+
+     .macro-card-mini {
+         width: 85px;
+     }
+
+     h2 {
+         font-size: 1.5rem;
+     }
+
+     h3 {
+         font-size: 1.1rem;
+     }
+ }
+
+ .macro-card-mini:hover,
+ .macro-card-mini:active {
+     border-color: #3498db;
+     transform: scale(0.95);
+ }
+
+ .macro-card-mini img {
+     width: 100%;
+     height: 60px;
+     object-fit: cover;
+     display: block;
+     margin-bottom: 4px;
+     border-radius: 2px;
+ }
+
+ .macro-card-mini span {
+     font-size: 0.7rem;
+     font-weight: 700;
+     display: block;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+ }
+
+ .macro-nav-container::-webkit-scrollbar {
+     height: 6px;
+ }
+
+ .macro-nav-container::-webkit-scrollbar-thumb {
+     background: rgba(255, 255, 255, 0.5);
+     border-radius: 10px;
+ }
+
+ .content-section {
+     background-color: rgba(255, 255, 255, 0.1);
+     padding: 20px;
+     border-radius: 8px;
+ }
+
+.organismo-code {
+    background-color: rgba(255, 255, 255, 0.2); 
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace; 
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-right: 8px;
+    display: inline-block;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.organismo-item:hover .organismo-code {
+    background-color: #fff;
+    color: #2c3e50; 
+    border-color: #fff;
+}
+
+/* Fichas */
+
+/* Contenedor de la lista */
+.organismo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Estilo de cada fila de link */
+.organismo-item {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.05); /* Fondo muy sutil */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.organismo-item:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: #fff;
+    transform: translateX(5px); /* Desplazamiento sutil a la derecha */
+    color: white;
+}
+
+/* Miniatura del organismo */
+.organismo-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Circular */
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.5);
+    flex-shrink: 0;
+    margin-right: 15px;
+}
+
+.organismo-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Textos dentro del link */
+.organismo-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.organismo-name {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.organismo-link {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    text-transform: uppercase;
+}

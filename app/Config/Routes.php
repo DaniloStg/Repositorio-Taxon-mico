@@ -7,8 +7,15 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
-// Repositorio
-$routes->get('Principal','Repositorio\RepoPrincipalController::HomeRepositorio');
+// Repositorio Home
+$routes->get('principal','Repositorio\RepoPrincipalController::HomeRepositorio');
+
+// Ficha
+$routes->get('ficha','Repositorio\RepoPrincipalController::Ficha');
+
+$routes->get('ficha2','Repositorio\RepoPrincipalController::FichaRedireccion');
+
+
 
 // Calculadora
-$routes->get('Calculadora','Calculadora\LogicaCalculadora::VerCalculadora');
+$routes->get('calculadora','Calculadora\LogicaCalculadora::VerCalculadora');
