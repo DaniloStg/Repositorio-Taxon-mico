@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <title>Macroinvertebrados - Inicio</title> -->
-    <title>Propuesta 1</title>
+    <title>Propuesta 3</title>
 
-    <link rel="stylesheet" href="<?= base_url('Styles/Ficha.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('Styles/Ficha3.css') ?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
@@ -98,19 +98,26 @@
                                         </div>
 
                                         <div class="px-3 pb-3 mt-2">
-                                            <details class="border rounded">
-                                                <summary class="p-2 bg-light text-primary fw-bold" style="font-size: 0.85rem; cursor: pointer;">
+
+                                            <div class="px-1 pb-3 mt-2">
+                                                <div class="border rounded p-2 bg-light text-primary fw-bold d-flex align-items-center"
+                                                    style="font-size: 0.85rem; cursor: pointer;"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#organismoModal"
+                                                    data-nombre="Hydropsychidae"
+                                                    data-orden="Trichoptera"
+                                                    data-codigo="Hydsy"
+                                                    data-descripcion="Larvas acuáticas conocidas como 'tejedoras de redes'. Son excelentes indicadores de la calidad del agua."
+                                                    data-habito="Colector-filtrador. Construyen redes de seda."
+                                                    data-tolerancia="5-7"
+                                                    data-morfologia="Branquias abdominales ramificadas."
+                                                    data-habitat="Zonas de corriente rápida."
+                                                    data-img="images/organismo1.jpg">
+
                                                     <span class="me-2">✚</span> Ver detalles taxonómicos y notas
-                                                </summary>
-                                                <div class="p-3 border-top" style="font-size: 0.85rem; color: #555; background-color: #fdfdfd;">
-                                                    <ul class="mb-0">
-                                                        <li><strong>Familia:</strong> Hydropsychidae (Curtis, 1835)</li>
-                                                        <li><strong>Ciclo de vida:</strong> Larvas acuáticas, adultos terrestres.</li>
-                                                        <li><strong>Sensibilidad:</strong> Indicador de aguas de calidad moderada.</li>
-                                                        <li><strong>Nota:</strong> Construyen redes de seda para capturar partículas.</li>
-                                                    </ul>
                                                 </div>
-                                            </details>
+                                            </div>
+
                                         </div>
 
                                     </div>
@@ -352,6 +359,12 @@
     <footer class="text-center py-4 mt-5 content-section">
         <small>Macroinvertebrados © 2026</small>
     </footer>
+
+    <?= view('Repositorio/Principal/Modal(Propuesta 3).php') ?>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="<?= base_url('JavaScript/Ficha3.js') ?>"></script>
 
 </body>
 

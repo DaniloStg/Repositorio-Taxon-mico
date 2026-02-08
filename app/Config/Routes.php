@@ -14,8 +14,9 @@ $routes->get('principal','Repositorio\RepoPrincipalController::HomeRepositorio')
 // PROPUESTA 1
 $routes->get('ficha','Repositorio\RepoPrincipalController::Ficha');
 // PROPUESTA 2
-$routes->get('ficha2','Repositorio\RepoPrincipalController::FichaRedireccion');
+$routes->get('ficha2','Repositorio\RepoPrincipalController::Fichatarjeta');
 // PROPUESTA 3
+$routes->get('ficha3','Repositorio\RepoPrincipalController::FichaModal');
 
 
 // Calculadora

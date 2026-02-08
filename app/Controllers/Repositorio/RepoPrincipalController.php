@@ -30,9 +30,16 @@ class RepoPrincipalController extends BaseController
     }
 
     // PROPUESTA 2
-    public function FichaRedireccion()
+    public function Fichatarjeta()
     {
 
         return view("Repositorio/Principal/FichaTarjetaLink(Propuesta 2)");
+    }
+
+    // PROPUESTA 3
+    public function FichaModal()
+    {
+
+        return view("Repositorio/Principal/FichaConModal(Propuesta 3)");
     }
 }
