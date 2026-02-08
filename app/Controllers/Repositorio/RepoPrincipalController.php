@@ -15,21 +15,24 @@ class RepoPrincipalController extends BaseController
     // }
 
 
-    public function HomeRepositorio()
-    {
-
-        return view("Repositorio/PrincipalRepoView");
-    }
-
+    // PROPUESTA 1
     public function Ficha()
     {
 
-        return view("Repositorio/Ficha");
+        return view("Repositorio/Principal/Ficha(Propuesta 1)");
     }
 
-        public function FichaRedireccion()
+    // PROPUESTA 2
+    public function HomeRepositorio()
     {
 
-        return view("Repositorio/FichaRedireccion");
+        return view("Repositorio/Principal/PrincipalRepoView(Propuesta 2)");
+    }
+
+    // PROPUESTA 2
+    public function FichaRedireccion()
+    {
+
+        return view("Repositorio/Principal/FichaTarjetaLink(Propuesta 2)");
     }
 }

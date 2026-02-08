@@ -11,10 +11,11 @@ $routes->get('/', 'Home::index');
 $routes->get('principal','Repositorio\RepoPrincipalController::HomeRepositorio');
 
 // Ficha
+// PROPUESTA 1
 $routes->get('ficha','Repositorio\RepoPrincipalController::Ficha');
-
+// PROPUESTA 2
 $routes->get('ficha2','Repositorio\RepoPrincipalController::FichaRedireccion');
-
+// PROPUESTA 3
 
 
 // Calculadora

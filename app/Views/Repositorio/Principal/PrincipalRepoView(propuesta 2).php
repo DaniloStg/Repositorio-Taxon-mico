@@ -7,13 +7,13 @@
     <title>Macroinvertebrados - Inicio</title>
 
     <link rel="stylesheet" href="<?= base_url('Styles/RepositorioHome.css') ?>">
-    
+
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<style>
-    
-</style>
+    <style>
+
+    </style>
 
 </head>
 
@@ -25,38 +25,13 @@
             <div class="col-12 col-md-10 col-lg-9 pe-md-5">
 
                 <div class="text-center">
-                    <h2 class="text-uppercase fw-bold mb-1">Título</h2>
-                    <h3 class="h5 text-uppercase mb-3 opacity-75">Subtítulo</h3>
+                    <h2 class="text-uppercase fw-bold mb-1">Macroinvertebrados</h2>
+                    <h3 class="h5 text-uppercase mb-3 opacity-75">Repositorio de Especies</h3>
 
                     <nav class="macro-nav-container">
-                        <a href="#" class="macro-card-mini">
-                            <img src="images/home.jpg" onerror="this.src='https://placehold.co/100x70?text=Home'">
-                            <span>Home</span>
-                        </a>
-                        <a href="#" class="macro-card-mini">
-                            <img src="images/f1.jpg" onerror="this.src='https://placehold.co/100x70?text=F1'">
-                            <span>Familia 1</span>
-                        </a>
-                        <a href="#" class="macro-card-mini">
-                            <img src="images/f2.jpg" onerror="this.src='https://placehold.co/100x70?text=F2'">
-                            <span>Familia 2</span>
-                        </a>
-                        <a href="#" class="macro-card-mini">
-                            <img src="images/f3.jpg" onerror="this.src='https://placehold.co/100x70?text=F3'">
-                            <span>Familia 3</span>
-                        </a>
-                        <a href="#" class="macro-card-mini">
-                            <img src="images/f4.jpg" onerror="this.src='https://placehold.co/100x70?text=F4'">
-                            <span>Familia 4</span>
-                        </a>
-                        <a href="#" class="macro-card-mini">
-                            <img src="images/f5.jpg" onerror="this.src='https://placehold.co/100x70?text=F5'">
-                            <span>Familia 5</span>
-                        </a>
-                        <a href="#" class="macro-card-mini">
-                            <img src="images/f5.jpg" onerror="this.src='https://placehold.co/100x70?text=F6'">
-                            <span>Familia 6</span>
-                        </a>
+
+                        <?= view('Repositorio/Navegador/Nav.php') ?>
+
                     </nav>
                 </div>
 
@@ -76,10 +51,11 @@
                         <div class="col-md-6">
                             <p><strong>Info 2:</strong> ---</p>
                         </div>
+                        <h6 class="text-uppercase fw-bold " style="font-size: 0.8rem; letter-spacing: 1px;">Organismos Relacionados</h6>
+
                     </div>
 
-                    <div class="mt-4">
-                        <h6 class="text-uppercase fw-bold mb-3" style="font-size: 0.8rem; letter-spacing: 1px;">Organismos Relacionados</h6>
+                    <div class="mt-2">
 
                         <div class="organismo-list">
                             <a href="ficha2" class="organismo-item">
