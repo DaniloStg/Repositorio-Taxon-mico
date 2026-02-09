@@ -105,14 +105,16 @@
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#organismoModal"
                                                     data-nombre="Hydropsychidae"
+                                                    data-imgs="images/organismo1.jpg,
+                                                    images/organismo1_v2.jpg,
+                                                    images/organismo1_v3.jpg"
                                                     data-orden="Trichoptera"
                                                     data-codigo="Hydsy"
-                                                    data-descripcion="Larvas acuáticas conocidas como 'tejedoras de redes'. Son excelentes indicadores de la calidad del agua."
-                                                    data-habito="Colector-filtrador. Construyen redes de seda."
+                                                    data-descripcion="Larvas acuáticas conocidas como 'tejedoras de redes'..."
+                                                    data-habito="Colector-filtrador..."
                                                     data-tolerancia="5-7"
-                                                    data-morfologia="Branquias abdominales ramificadas."
-                                                    data-habitat="Zonas de corriente rápida."
-                                                    data-img="images/organismo1.jpg">
+                                                    data-morfologia="Branquias abdominales..."
+                                                    data-habitat="Zonas de corriente rápida.">
 
                                                     <span class="me-2">✚</span> Ver detalles taxonómicos y notas
                                                 </div>
