@@ -27,7 +27,7 @@
         <span class="navbar-icon"><i class="bi bi-water"></i></span>
         <span>
           <span class="brand-main">PMA-SL</span>
-          <span class="brand-sub d-none d-md-inline">Índice Biótico para Ríos Serranos</span>
+          <!-- <span class="brand-sub d-none d-md-inline">Índice Biótico para Ríos Serranos</span> -->
         </span>
       </a>
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
@@ -35,7 +35,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ms-auto gap-1">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link <?= uri_string() === '' ? 'active' : '' ?>" href="<?= base_url('/') ?>">
               <i class="bi bi-house-door me-1"></i>Inicio
             </a>
@@ -44,7 +44,7 @@
             <a class="nav-link <?= str_contains(uri_string(), 'calculadora') ? 'active' : '' ?>" href="<?= base_url('calculadora') ?>">
               <i class="bi bi-calculator me-1"></i>Calculadora
             </a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
