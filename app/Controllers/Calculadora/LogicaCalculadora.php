@@ -15,11 +15,10 @@ class LogicaCalculadora extends BaseController
     // }
 
 
-    public function VerCalculadora()
-    {
-        $data = [
-            'title' => 'Calculadora PMA-SL',
-        ];
-        return view("Calculadora/VistaCalculadora", $data);
+    public function VerCalculadora(){
+
+        return view("Calculadora/VistaCalculadora");
     }
+
+
 }
