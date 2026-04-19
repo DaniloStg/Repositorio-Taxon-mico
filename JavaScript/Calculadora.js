@@ -1,5 +1,5 @@
 /*** 
- * cálculo PMA, grupos G1-G4, exportación PDF/XLSX 
+ * cálculo PMA, análisis grupos G1-G4, exportación PDF/XLSX 
  ***/
 (function () {
   'use strict';
