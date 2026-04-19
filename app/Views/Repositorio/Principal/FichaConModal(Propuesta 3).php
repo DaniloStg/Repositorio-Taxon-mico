@@ -55,7 +55,7 @@
                             <details>
                                 <summary>
                                     <div class="organismo-img">
-                                        <img src="images/organismo1.jpg" onerror="this.src='https://placehold.co/50x50?text=Org'">
+                                        <img src="imagenes/IMG_20260128_180849.jpg" onerror="this.src='https://placehold.co/50x50?text=Org'">
                                     </div>
                                     <div class="organismo-info">
                                         <span class="organismo-name">
@@ -69,28 +69,37 @@
                                 <div class="ficha-desplegada">
                                     <div class="ficha-head-azul">Información Técnica</div>
                                     <div class="ficha-cuerpo">
-                                        <img src="https://placehold.co/800x300?text=Imagen+Completa+Organismo" class="ficha-foto-top">
+                                        <div class="row g-0 align-items-center">
+                                            <div class="col-12 col-md-4 mt-2">
+                                                <img src="imagenes/image.png"
+                                                    onerror="this.src='https://placehold.co/400x400?text=Hydsy'"
+                                                    class="ficha-foto-top w-100"
+                                                    style="height: 200px; object-fit: contain; border-bottom: none;">
+                                            </div>
 
-                                        <div class="ficha-datos-grid">
-                                            <div class="dato-item">
-                                                <span class="dato-label">Nombre</span>
-                                                <span class="dato-valor">Hydropsychidae</span>
-                                            </div>
-                                            <div class="dato-item">
-                                                <span class="dato-label">Orden</span>
-                                                <span class="dato-valor">Trichoptera</span>
-                                            </div>
-                                            <div class="dato-item">
-                                                <span class="dato-label">Alimentación</span>
-                                                <span class="dato-valor">Filtradores</span>
-                                            </div>
-                                            <div class="dato-item">
-                                                <span class="dato-label">Hábitat</span>
-                                                <span class="dato-valor">Ríos Correntosos</span>
+                                            <div class="col-12 col-md-8">
+                                                <div class="ficha-datos-grid">
+                                                    <div class="dato-item">
+                                                        <span class="dato-label">Nombre</span>
+                                                        <span class="dato-valor">Hydropsychidae</span>
+                                                    </div>
+                                                    <div class="dato-item">
+                                                        <span class="dato-label">Orden</span>
+                                                        <span class="dato-valor">Trichoptera</span>
+                                                    </div>
+                                                    <div class="dato-item">
+                                                        <span class="dato-label">Alimentación</span>
+                                                        <span class="dato-valor">Filtradores</span>
+                                                    </div>
+                                                    <div class="dato-item">
+                                                        <span class="dato-label">Hábitat</span>
+                                                        <span class="dato-valor">Ríos Correntosos</span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div class="px-3 pb-2">
+                                        <div class="px-3 pb-2 mt-4">
                                             <h6 class="text-uppercase fw-bold text-secondary" style="font-size: 0.75rem; letter-spacing: 1px;">Descripción del Organismo</h6>
                                             <div class="p-3 bg-light border-start border-4 border-primary rounded-end" style="color: #444; font-size: 0.9rem; line-height: 1.6;">
                                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -105,9 +114,14 @@
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#organismoModal"
                                                     data-nombre="Hydropsychidae"
-                                                    data-imgs="images/organismo1.jpg,
-                                                    images/organismo1_v2.jpg,
-                                                    images/organismo1_v3.jpg"
+                                                    data-imgs="
+                                                    imagenes/IMG_20260126_163733.jpg,
+                                                    imagenes/IMG_20260126_163351.jpg,
+                                                    imagenes/IMG_20260126_171500.jpg,
+                                                    imagenes/IMG_20260128_173828.jpg,
+                                                    imagenes/IMG_20260128_180849.jpg,
+                                                    imagenes/IMG_20260128_181042.jpg,
+                                                    imagenes/IMG_20260128_181611.jpg"
                                                     data-orden="Trichoptera"
                                                     data-codigo="Hydsy"
                                                     data-descripcion="Larvas acuáticas conocidas como 'tejedoras de redes'..."

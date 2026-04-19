@@ -202,9 +202,11 @@ summary::-webkit-details-marker {
 
 .ficha-foto-top {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: 200px; 
+    object-fit: contain !important; 
+    background-color: #f8f9fa; 
     border-bottom: 1px solid #eee;
+    display: block;
 }
 
 .ficha-datos-grid {
@@ -336,20 +338,22 @@ summary::-webkit-details-marker {
     left: 50% !important;
     transform: translate(-50%, -50%) scale(1) !important;
     z-index: 10000 !important;
-    max-width: 85vw !important;
-    height: 80vh !important;
+    width: 95vw !important;  
+    height: 90vh !important; 
+    max-width: none !important;
+    max-height: none !important;
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.9);
-    background: white;
+    background: #000 !important; 
+    object-fit: contain !important; 
     cursor: zoom-in !important;
     transition: transform 0.3s ease !important;
     will-change: transform-origin;
-    object-fit: contain;
 }
 
 .img-super-zoom {
-    transform: translate(-50%, -50%) scale(3) !important;
+    transform: translate(-50%, -50%) scale(3) !important; 
     cursor: move !important;
-    transition: none !important;
+    transition: none !important; 
 }
 
 .zoom-overlay-active {
@@ -358,8 +362,8 @@ summary::-webkit-details-marker {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    z-index: 9998;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
 }
 
 .tech-list {
@@ -383,7 +387,16 @@ summary::-webkit-details-marker {
 }
 
 .carousel-item img {
-    height: 250px;
-    object-fit: cover;
-    background: #eee;
+    height: 350px !important; 
+    width: 100% !important;
+    object-fit: contain !important; 
+    background-color: #f8f9fa;
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+    touch-action: none; 
+}
+
+.carousel-inner {
+    background-color: #f8f9fa; 
+    border-radius: 12px;
 }
