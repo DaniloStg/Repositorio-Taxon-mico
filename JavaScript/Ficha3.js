@@ -14,19 +14,19 @@ document.getElementById('organismoModal').addEventListener('show.bs.modal', func
 
     let mediaHTML = "";
     if (fotos.length > 0) {
+        // CORRECCIÓN: Eliminado object-fit: cover de aquí para que mande el CSS
         let carouselItems = fotos.map((foto, index) => `
-    <div class="carousel-item ${index === 0 ? 'active' : ''}">
-        <img src="${foto.trim()}" class="d-block w-100 rounded zoomable-img" 
-             style="cursor: zoom-in; height: 250px; object-fit: cover;"
-             onclick="handleZoom(this)"
-             onmousemove="moveZoom(event, this)"
-             ontouchmove="moveZoom(event, this)"
-             onerror="this.src='https://placehold.co/400x250?text=Imagen+${index + 1}'">
-    </div>`).join('');
+            <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                <img src="${foto.trim()}" class="d-block w-100 zoomable-img" 
+                     onclick="handleZoom(this)"
+                     onmousemove="moveZoom(event, this)"
+                     ontouchmove="moveZoom(event, this)"
+                     onerror="this.src='https://placehold.co/400x250?text=Imagen+${index + 1}'">
+            </div>`).join('');
 
         mediaHTML = `
             <div id="carouselOrganismo" class="carousel slide mb-4 shadow-sm rounded-4 overflow-hidden" data-bs-ride="false">
-                <div class="carousel-inner bg-light">
+                <div class="carousel-inner">
                     ${carouselItems}
                 </div>
                 ${fotos.length > 1 ? `
@@ -54,46 +54,30 @@ document.getElementById('organismoModal').addEventListener('show.bs.modal', func
             ${mediaHTML}
 
             <div class="card-body p-0">
-                <p class="description-text mb-4">
-                    ${desc}
-                </p>
-
+                <p class="description-text mb-4">${desc}</p>
                 <h6 class="fw-bold text-uppercase mb-3" style="font-size: 0.75rem; letter-spacing: 1px; color: #666;">
                     Especificaciones Técnicas
                 </h6>
-                
                 <div class="tech-list">
-                    <div class="tech-item">
-                        <strong>Hábito</strong>
-                        <span>${habito}</span>
-                    </div>
-                    <div class="tech-item">
-                        <strong>Tolerancia</strong>
-                        <span>${tolerancia}</span>
-                    </div>
-                    <div class="tech-item">
-                        <strong>Morfología</strong>
-                        <span>${morfologia}</span>
-                    </div>
-                    <div class="tech-item">
-                        <strong>Hábitat</strong>
-                        <span>${habitat}</span>
-                    </div>
+                    <div class="tech-item"><strong>Hábito</strong><span>${habito}</span></div>
+                    <div class="tech-item"><strong>Tolerancia</strong><span>${tolerancia}</span></div>
+                    <div class="tech-item"><strong>Morfología</strong><span>${morfologia}</span></div>
+                    <div class="tech-item"><strong>Hábitat</strong><span>${habitat}</span></div>
                 </div>
             </div>
-        </div>
-    `;
+        </div>`;
 });
+
+// --- FUNCIONES DE ZOOM MEJORADAS ---
 
 function handleZoom(img) {
     if (!img.classList.contains('img-enlarged')) {
         img.classList.add('img-enlarged');
         document.body.style.overflow = 'hidden';
-    }
+    } 
     else if (!img.classList.contains('img-super-zoom')) {
         img.classList.add('img-super-zoom');
-        img.style.transformOrigin = 'center center';
-    }
+    } 
     else {
         img.classList.remove('img-enlarged', 'img-super-zoom');
         img.style.transformOrigin = 'center center';
@@ -102,15 +86,14 @@ function handleZoom(img) {
 }
 
 let ticking = false;
-
 function moveZoom(e, img) {
     if (img.classList.contains('img-super-zoom')) {
+        // Evitar scroll en mobile
         if (e.cancelable) e.preventDefault();
 
         if (!ticking) {
             window.requestAnimationFrame(() => {
                 let clientX, clientY;
-
                 if (e.type.includes('touch')) {
                     clientX = e.touches[0].clientX;
                     clientY = e.touches[0].clientY;
@@ -120,27 +103,18 @@ function moveZoom(e, img) {
                 }
 
                 const rect = img.getBoundingClientRect();
-
+                // Cálculo de precisión basado en el rectángulo actual de la imagen
                 let xPercent = ((clientX - rect.left) / rect.width) * 100;
                 let yPercent = ((clientY - rect.top) / rect.height) * 100;
 
-                // Clamp 0-100
-                xPercent = Math.min(Math.max(xPercent, 0), 100);
-                yPercent = Math.min(Math.max(yPercent, 0), 100);
+                // Límites 0-100 para que no desaparezca la imagen
+                xPercent = Math.max(0, Math.min(100, xPercent));
+                yPercent = Math.max(0, Math.min(100, yPercent));
 
                 img.style.transformOrigin = `${xPercent}% ${yPercent}%`;
-
                 ticking = false;
             });
-
             ticking = true;
         }
     }
 }
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === "Escape") {
-        const enlarged = document.querySelector('.img-enlarged');
-        if (enlarged) enlarged.classList.remove('img-enlarged', 'img-super-zoom');
-    }
-});
