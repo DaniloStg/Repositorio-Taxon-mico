@@ -625,7 +625,7 @@ body {
   font-size: .75rem;
   color: var(--text-muted);
   white-space: nowrap;
-  font-style: italic
+  /* font-style: italic */
 }
 
 .group-status--nd {

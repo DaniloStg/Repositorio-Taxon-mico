@@ -5,7 +5,7 @@
 <div class="container-xl">
 
   <!-- TITULO -->
-  <div class="calc-page-header mb-4">
+  <div class="calc-page-header mb-2">
     <h1 class="calc-page-title">
       <span class="calc-page-accent">PMA-SL</span> – Calculadora del Índice
       Percent Model Affinity para Ríos Serranos
@@ -20,8 +20,8 @@
       <div class="calc-card">
         <div class="calc-card__header d-flex justify-content-between align-items-center">
           <span><i class="bi bi-list-check me-2"></i>Carga de abundancias</span>
-          <button class="btn btn-sm btn-outline-light" id="btn-limpiar-taxa">
-            <i class="bi bi-trash3 me-1"></i>Limpiar
+          <button class="btn-header-clear" id="btn-limpiar-taxa">
+            <i class="bi bi-eraser me-1"></i>Limpiar
           </button>
         </div>
         <div class="calc-card__body" id="pma-taxa-content">
@@ -117,7 +117,7 @@
         <div class="calc-card__header d-flex justify-content-between align-items-center">
           <span><i class="bi bi-box-arrow-up me-2"></i>Exportar</span>
           <button class="btn-header-clear" id="btn-limpiar-meta">
-            <i class="bi bi-eraser"></i>Limpiar datos
+            <i class="bi bi-eraser"></i>Limpiar
           </button>
         </div>
         <div class="calc-card__body">
@@ -162,6 +162,9 @@
               placeholder="Condiciones del sitio, notas de campo, etc."
               style="resize:vertical"></textarea>
           </div>
+          <p class="text-muted text-start" style="font-size:.73rem">
+            <i class="bi bi-asterisk" style="font-size:.6rem"></i> Campos obligatorios para exportar
+          </p>
 
           <div class="d-flex gap-2 mb-2">
             <button class="btn btn-export-pdf flex-grow-1" id="btn-pdf">
@@ -171,9 +174,6 @@
               <i class="bi bi-file-earmark-spreadsheet me-2"></i>Exportar xlsx
             </button>
           </div>
-          <p class="text-muted text-start" style="font-size:.73rem">
-            <i class="bi bi-asterisk" style="font-size:.6rem"></i> Campos obligatorios para exportar
-          </p>
         </div>
       </div>
 

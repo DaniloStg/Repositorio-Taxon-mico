@@ -63,28 +63,28 @@
   function getThresholds(score) {
     if (score === null || score === undefined) return null;
     if (score >= 60) return {
-      G1: { thr: '≥ 30%', ok: p => p >= 30 },
-      G2: { thr: '≤ 40%', ok: p => p <= 40 },
-      G3: { thr: '≤ 7%', ok: p => p <= 7 },
-      G4: { thr: '≤ 15%', ok: p => p <= 15 }
+      G1: { thr: '≥ 30%', ok: p => p >= 30, err: 'Bajo' },
+      G2: { thr: '≤ 40%', ok: p => p <= 40, err: 'Alto' },
+      G3: { thr: '≤ 7%',  ok: p => p <= 7,  err: 'Alto' },
+      G4: { thr: '≤ 15%', ok: p => p <= 15, err: 'Alto' }
     };
-    if (score >= 50 || score <= 59) return {
-      G1: { thr: '25-30%', ok: p => p >= 25 && p <= 30 },
-      G2: { thr: '≤ 40%', ok: p => p <= 40 },
-      G3: { thr: '≤ 10%', ok: p => p <= 10 },
-      G4: { thr: '≤ 20%', ok: p => p <= 20 }
+    if (score >= 50 && score <= 59) return {
+      G1: { thr: '25-30%', ok: p => p >= 25 && p <= 30, err: p => p < 25 ? 'Bajo' : 'Alto' }, 
+      G2: { thr: '≤ 40%',  ok: p => p <= 40, err: 'Alto' },
+      G3: { thr: '≤ 10%',  ok: p => p <= 10, err: 'Alto' },
+      G4: { thr: '≤ 20%',  ok: p => p <= 20, err: 'Alto' }
     };
-    if (score >= 39 || score <= 49) return {
-      G1: { thr: '< 25%', ok: p => p < 25 },
-      G2: { thr: '> 40%', ok: p => p > 40 },
-      G3: { thr: '≤ 15%', ok: p => p <= 15 },
-      G4: { thr: '≤ 25%', ok: p => p <= 25 }
+    if (score >= 39 && score <= 49) return {
+      G1: { thr: '< 25%', ok: p => p < 25, err: 'Alto' },
+      G2: { thr: '> 40%', ok: p => p > 40, err: 'Bajo' },
+      G3: { thr: '≤ 15%', ok: p => p <= 15, err: 'Alto' },
+      G4: { thr: '≤ 25%', ok: p => p <= 25, err: 'Alto' }
     };
     return {
-      G1: { thr: '< 20%', ok: p => p < 20 },
-      G2: { thr: '> 45%', ok: p => p > 45 },
-      G3: { thr: '> 15%', ok: p => p > 15 },
-      G4: { thr: '> 25%', ok: p => p > 25 }
+      G1: { thr: '< 20%', ok: p => p < 20, err: 'Alto' },
+      G2: { thr: '> 45%', ok: p => p > 45, err: 'Bajo' },
+      G3: { thr: '> 15%', ok: p => p > 15, err: 'Bajo' },
+      G4: { thr: '> 25%', ok: p => p > 25, err: 'Bajo' }
     };
   }
 
@@ -144,7 +144,7 @@
     });
   }
 
-  //guía visual - errores
+  // guía visual - errores
   function hasErrors() {
     let found = false;
     document.querySelectorAll('#pma-taxa-content .taxa-input').forEach(inp => {
@@ -197,7 +197,7 @@
     });
 
     if (n_site === 0) {
-      updateUI(0, 0, { G1: 0, G2: 0, G3: 0, G4: 0 }, 0, null); //!!!!!!!!!!!!!!!!!!!!
+      updateUI(0, 0, { G1: 0, G2: 0, G3: 0, G4: 0 }, 0);
       lastResults = null;
       return;
     }
@@ -257,11 +257,11 @@
     });
   }
 
-  function updateUI(n, pma_score, bi_groups, n_efect, rawScore) {
+  function updateUI(n, pma_score, bi_groups, n_efect) {
     // valores
     const score = document.getElementById('pma-score');
     if (score) {
-      score.className='pma-result-index';
+      score.className = 'pma-result-index';
       score.textContent = n > 0 ? pma_score.toFixed(2) : '0.00';
     }
     const tn = document.getElementById('pma-total-n');
@@ -305,35 +305,7 @@
     if (warn) (n > 0 && n < 100) ? warn.classList.add('visible') : warn.classList.remove('visible');
 
     // group table
-    // ['G1', 'G2', 'G3', 'G4'].forEach(g => {
-    //   const pct = bi_groups[g];
-    //   const valEl = document.getElementById(`pma-p${g.toLowerCase()}-val`);
-    //   const statusEl = document.getElementById(`pma-p${g.toLowerCase()}-status`);
-
-    //   if (valEl) valEl.textContent = pct.toFixed(2) + '%';
-
-    //   if (statusEl) {
-    //     if (n === 0) {
-    //       statusEl.textContent = '—';
-    //       statusEl.className = 'group-status';
-    //     } else {
-    //       const ref = groupRef[g];
-    //       statusEl.className = 'group-status';
-    //       if (pct < ref * 0.6) {
-    //         statusEl.classList.add('group-status--bajo');
-    //         statusEl.textContent = 'Bajo';
-    //       } else if (pct <= ref * 1.4) {
-    //         statusEl.classList.add('group-status--ok');
-    //         statusEl.textContent = 'OK';
-    //       } else {
-    //         statusEl.classList.add('group-status--alto');
-    //         statusEl.textContent = 'Alto';
-    //       }
-    //     }
-    //   }
-    // });
-
-    const thr = n > 0 ? getThresholds(rawScore) : null;
+    const thr = n > 0 ? getThresholds(pma_score) : null;
     ['G1', 'G2', 'G3', 'G4'].forEach(g => {
       const gl = g.toLowerCase(); const pct = bi_groups[g];
       const vEl = document.getElementById(`pma-p${gl}-val`);
@@ -345,7 +317,7 @@
         sEl.className = 'group-status';
         if (!thr) { sEl.classList.add('group-status--nd'); sEl.textContent = '—'; }
         else if (thr[g].ok(pct)) { sEl.classList.add('group-status--ok'); sEl.textContent = 'OK'; }
-        else { sEl.classList.add('group-status--fuera'); sEl.textContent = 'Fuera'; }
+        else { sEl.classList.add('group-status--fuera'); sEl.textContent = thr[g].err; }
       }
     });
   }
@@ -461,7 +433,6 @@
     let y = meta.obs ? 56 : 50;
 
     // resultado principal
-    // let y = 50;
     doc.setFontSize(12);
     doc.setFont('helvetica', 'bold');
     doc.text('RESULTADO DEL SITIO', 14, y); y += 5;
@@ -490,7 +461,7 @@
         ['G1 – Sensibles', thr ? thr.G1.thr : '—', res.bi_groups.G1.toFixed(2) + '%', thr ? (thr.G1.ok(res.bi_groups.G1) ? 'OK' : 'Fuera') : '—'],
         ['G2 – Moderados', thr ? thr.G2.thr : '—', res.bi_groups.G2.toFixed(2) + '%', thr ? (thr.G2.ok(res.bi_groups.G2) ? 'OK' : 'Fuera') : '—'],
         ['G3 – Tolerantes', thr ? thr.G3.thr : '—', res.bi_groups.G3.toFixed(2) + '%', thr ? (thr.G3.ok(res.bi_groups.G3) ? 'OK' : 'Fuera') : '—'],
-        ['G4 – Muy toler.', thr ? thr.G4.thr : '—', res.bi_groups.G4.toFixed(2) + '%', thr ? (thr.G4.ok(res.bi_groups.G4) ? 'OK' : 'Fuera') : '—'],
+        ['G4 – Muy tolerantes', thr ? thr.G4.thr : '—', res.bi_groups.G4.toFixed(2) + '%', thr ? (thr.G4.ok(res.bi_groups.G4) ? 'OK' : 'Fuera') : '—'],
       ],
       theme: 'striped',
       headStyles: { fillColor: [64, 145, 108], textColor: 255, fontSize: 8 },
@@ -550,7 +521,7 @@
     const meta = getSiteMeta();
     const quality = getQualityLabel();
     const totalPi = res.familyResults.reduce((a, b) => a + b.pi, 0);
-    const thr=getThresholds(res.pma_final);
+    const thr = getThresholds(res.pma_final);
     const wb = XLSX.utils.book_new();
 
     // hoja 1: resumen
@@ -612,11 +583,17 @@
     buildGrid();
     attachInputGuards();
     attachMetaFieldListeners();
+    calculate();
 
     // Fecha máx = hoy
-    const today = new Date().toISOString().split('T')[0];
+    // const today = new Date().toISOString().split('T')[0];
+    const now = new Date();
+    const today = [
+      now.getFullYear(),
+      String(now.getMonth() + 1).padStart(2, '0'),
+      String(now.getDate()).padStart(2, '0')
+    ].join('-');
     document.getElementById('input-fecha')?.setAttribute('max', today);
-    calculate();
 
     // input listener
     document.getElementById('pma-taxa-content').addEventListener('input', calculate);
